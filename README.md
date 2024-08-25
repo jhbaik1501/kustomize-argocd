@@ -3,22 +3,26 @@
 ## Structure
 ```
 ├── base
-│   ├── configmap.yaml
-│   ├── deployment-db.yaml
-│   ├── deployment.yaml
 │   ├── ingress.yaml
 │   ├── kustomization.yaml
-│   └── secret.yaml
+│   ├── namespace.yaml
+│   ├── nginx-service.yaml
+│   ├── persistent-volume.yaml
+│   └── web-deployment.yaml
 └── overlays
-    └── dev
+    ├── dev
+    │   ├── deployment-patch.yaml
+    │   └── kustomization.yaml
+    └── prod
+        ├── deployment-patch.yaml
         └── kustomization.yaml
 ```
 ## build
 ```sh
-kustomize build overlay/dev/
+kustomize build overlays/dev/
 ```
 
 ## apply kubernetes
 ```sh
-kustomize build overlay/dev/ | kubectl apply -f -
+kustomize build overlays/dev/ | kubectl apply -f -
 ```
