@@ -4,7 +4,7 @@ metadata:
   name: nginx-deployment
   namespace: image-cache-demo
 spec:
-  replicas: 5
+  replicas: 3
   template:
     spec:
       containers:
